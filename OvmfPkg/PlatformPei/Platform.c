@@ -206,7 +206,7 @@ MemMapInitialization (
       //
       PciExBarBase = FixedPcdGet64 (PcdPciExpressBaseAddress);
       ASSERT (PciExBarBase <= MAX_UINT32 - SIZE_256MB);
-      PciBase = BASE_2GB;
+      PciBase = BASE_2GB + BASE_4MB;              // MCX-CM220 (UNO-148)
       ASSERT (TopOfLowRam <= PciBase);
       ASSERT (PciBase < PciExBarBase);
       PciSize = PciExBarBase - PciBase;
